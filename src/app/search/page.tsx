@@ -2,7 +2,7 @@ import SearchInput from "@/components/SearchInput";
 import Image from "next/image";
 import Header from "@/components/Header";
 import ServiceProCard from "@/components/ServiceProCard";
-import ServicesList from "@/components/ServicesList/page";
+import ServicesList from "@/components/ServicesList";
 
 export default function search() {
   return (

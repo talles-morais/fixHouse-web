@@ -33,6 +33,7 @@ export default function LoginForm() {
     try {
       const response = await api.post("/login", data)
       console.log(response.data)
+      window.localStorage.setItem("userId", response.data.userId)
       if(response.status === 200) {
         router.push("/home")
       }

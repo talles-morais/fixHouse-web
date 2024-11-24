@@ -3,13 +3,22 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 
 interface IServiceProCard {
+  id: string,
   name: string,
-  specialty: string
+  specialty: string,
+  onCardClick: () => void
 }
 
-export default function ServiceProCard({ name, specialty }: IServiceProCard) {
+export default function ServiceProCard({ id, name, specialty, onCardClick }: IServiceProCard) {
+  const handleCardClick = () => {
+    localStorage.setItem("professionalId", id)
+    onCardClick()
+  }
+
   return (
-    <div className="flex bg-light-blue py-4 px-2 text-white justify-center items-center rounded-lg drop-shadow-md gap-16">
+    <div 
+      className="flex flex-col sm:flex-row bg-light-blue py-4 px-6 text-white justify-center items-center rounded-lg drop-shadow-md gap-16"
+    >
       <Image
         height={150}
         width={150}
@@ -19,9 +28,12 @@ export default function ServiceProCard({ name, specialty }: IServiceProCard) {
       />
 
       <div className=" flex flex-col gap-4">
-        <div className="flex justify-between">
+        <div className="flex justify-between items-center">
           <h3 className="text-dark-blue font-bold">{name}</h3>
-          <button className="bg-yellow-500 text-dark-blue font-bold rounded-md px-6 py-1">
+          <button 
+            onClick={handleCardClick}
+            className="bg-yellow-500 text-dark-blue font-bold rounded-md px-2 py-1"
+          >
             fazer proposta
           </button>
         </div>

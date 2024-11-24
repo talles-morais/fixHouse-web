@@ -11,7 +11,8 @@ const config: Config = {
       colors: {
         "light-blue": "#ABCEEB",
         "dark-blue": "#00406D",
-        "light-yellow": "#FDF8D0"         
+        "light-yellow": "#FDF8D0",  
+        "send-green": "#078700"       
       },
     },
   },
