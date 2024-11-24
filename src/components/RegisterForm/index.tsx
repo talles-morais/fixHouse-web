@@ -1,4 +1,5 @@
 "use client"
+import api from "@/services/api"
 import { UserRegister } from "@/utils/types/user"
 import { yupResolver } from "@hookform/resolvers/yup"
 import { useRouter } from "next/navigation"
@@ -28,14 +29,21 @@ export default function LoginForm() {
   const {
     register,
     handleSubmit,
-    formState: { errors }
+    formState: { errors },
+    reset
   } = useForm<UserRegister>({
     mode: "onSubmit",
     resolver: yupResolver<UserRegister>(userSchema)
   })
 
-  const onSubmit = (data: UserRegister) => {
-    console.log(data);
+  const onSubmit = async (data: UserRegister) => {
+    try {
+      const response = await api.post("/client", data)
+      console.log(response.data);
+      reset()
+    } catch (error) {
+      console.error("error creating user", error)
+    } 
   }
 
   return (
