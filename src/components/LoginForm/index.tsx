@@ -31,13 +31,15 @@ export default function LoginForm() {
 
   const onSubmit = async (data: UserLogin) => {
     try {
-      const response = await api.get("/client/:id")
+      const response = await api.post("/login", data)
       console.log(response.data)
+      if(response.status === 200) {
+        router.push("/home")
+      }
       reset()
     } catch (error) {
       console.error("error creating user", error)
     } 
-    
   }
 
   return (
