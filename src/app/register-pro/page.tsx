@@ -1,8 +1,9 @@
+import RegisterForm from "@/components/RegisterForm";
 import RegisterFormPro from "@/components/RegisterFormPro";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function register() {
+export default function registerpro() {
 
   return (
     <div className="bg-light-blue h-screen flex flex-col justify-center items-center gap-12">
@@ -12,9 +13,9 @@ export default function register() {
         src="/logo.svg"
         alt="Logo do FixHouse"
       />
-      <p className="text-dark-blue text-lg -m-10">Cliente</p>
+      <p className="text-dark-blue text-lg -m-10">Prestador de Serviços</p>
 
-      <RegisterFormPro/>
+      <RegisterFormPro />
 
       <div>
         <div className="text-xs flex">

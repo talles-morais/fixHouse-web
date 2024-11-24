@@ -9,3 +9,11 @@ export type UserRegister = {
   password: string,
   confirmPassword: string
 }
+
+export type UserRegisterPro = {
+  name: string,
+  email: string,
+  specialty: string,
+  password: string,
+  confirmPassword: string
+}
